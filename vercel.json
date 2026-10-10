@@ -1,0 +1,78 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/inside-ckd",
+      "destination": "/manufacturing",
+      "permanent": true
+    },
+    {
+      "source": "/inside-ckd/(.*)",
+      "destination": "/manufacturing",
+      "permanent": true
+    },
+    {
+      "source": "/news-events",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/career",
+      "destination": "/careers",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

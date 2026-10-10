@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { I18nProvider } from './lib/i18n';
+import { initSmoothScroll, destroySmoothScroll } from './lib/smooth-scroll';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { CartDrawer } from './components/layout/CartDrawer';
 import { WhatsAppFloat } from './components/layout/WhatsAppFloat';
+import { CustomCursor } from './components/motion/CustomCursor';
+import { IntroPreloader } from './components/motion/IntroPreloader';
+import { PageTransitionCurtain } from './components/motion/PageTransitionCurtain';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -50,10 +54,27 @@ const RouteTransitionWrapper: React.FC<{ children: React.ReactNode }> = ({ child
 };
 
 export default function App() {
+  // Initialize Lenis smooth scroll on mount
+  useEffect(() => {
+    initSmoothScroll();
+    return () => {
+      destroySmoothScroll();
+    };
+  }, []);
+
   return (
     <I18nProvider>
       <Router>
         <ScrollToTop />
+        {/* Elite Desktop Custom Cursor */}
+        <CustomCursor />
+
+        {/* First Visit Session Intro Preloader */}
+        <IntroPreloader />
+
+        {/* Layered Teal & Ivory Curtain Page Transition */}
+        <PageTransitionCurtain />
+
         <div className="flex flex-col min-h-screen bg-[#FAF8F4] text-[#0E2A2B]">
           {/* Top Bar with utility strip & mega menus */}
           <Header />
@@ -61,36 +82,36 @@ export default function App() {
           {/* Main Route Content with smooth transition */}
           <main className="flex-1 flex flex-col">
             <RouteTransitionWrapper>
-            <Routes>
-              {/* Corporate Pages */}
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/about-us" element={<AboutPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/products/:slug" element={<ProductDetailPage />} />
-              <Route path="/manufacturing" element={<ManufacturingPage />} />
-              <Route path="/inside-ckd" element={<ManufacturingPage />} />
-              <Route path="/research" element={<ResearchPage />} />
-              <Route path="/careers" element={<CareersPage />} />
-              <Route path="/career" element={<CareersPage />} />
-              <Route path="/news" element={<NewsPage />} />
-              <Route path="/news-events" element={<NewsPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/contact-us" element={<ContactPage />} />
-              <Route path="/legal" element={<LegalPage />} />
+              <Routes>
+                {/* Corporate Pages */}
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/about-us" element={<AboutPage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/products/:slug" element={<ProductDetailPage />} />
+                <Route path="/manufacturing" element={<ManufacturingPage />} />
+                <Route path="/inside-ckd" element={<ManufacturingPage />} />
+                <Route path="/research" element={<ResearchPage />} />
+                <Route path="/careers" element={<CareersPage />} />
+                <Route path="/career" element={<CareersPage />} />
+                <Route path="/news" element={<NewsPage />} />
+                <Route path="/news-events" element={<NewsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/contact-us" element={<ContactPage />} />
+                <Route path="/legal" element={<LegalPage />} />
 
-              {/* OTC Storefront Routes (/shop) */}
-              <Route path="/shop" element={<ShopHomePage />} />
-              <Route path="/shop/catalog" element={<ShopCatalogPage />} />
-              <Route path="/shop/product/:slug" element={<ProductDetailPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/order-confirmation/:id" element={<OrderConfirmationPage />} />
-              <Route path="/track-order" element={<TrackOrderPage />} />
+                {/* OTC Storefront Routes (/shop) */}
+                <Route path="/shop" element={<ShopHomePage />} />
+                <Route path="/shop/catalog" element={<ShopCatalogPage />} />
+                <Route path="/shop/product/:slug" element={<ProductDetailPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/order-confirmation/:id" element={<OrderConfirmationPage />} />
+                <Route path="/track-order" element={<TrackOrderPage />} />
 
-              {/* 404 Fallback */}
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
+                {/* 404 Fallback */}
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
             </RouteTransitionWrapper>
           </main>
 

@@ -22,6 +22,9 @@ import { articlesData } from '../content/articles';
 import { ProductCard } from '../components/shop/ProductCard';
 import { useI18n } from '../lib/i18n';
 
+import { HeroCinematicSlideshow } from '../components/home/HeroCinematicSlideshow';
+import { CertificationsMarquee } from '../components/home/CertificationsMarquee';
+
 export const HomePage: React.FC = () => {
   const { t } = useI18n();
   const [activeAreaIndex, setActiveAreaIndex] = useState(0);
@@ -40,109 +43,55 @@ export const HomePage: React.FC = () => {
       />
 
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION (Editorial, High-Trust, Full-Bleed Lab Image)
+          1. SIGNATURE CINEMATIC HERO SLIDESHOW (Award-Winning Editorial)
       ────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 gradient-hero bg-grain border-b border-[#0E2A2B]/8">
+      <HeroCinematicSlideshow />
+
+      {/* Institutional Trust Indicators Bar (Direct from authentic CKD data) */}
+      <section className="py-6 bg-[#FAF8F4] border-b border-[#0E2A2B]/8 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Institutional Eyebrow */}
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0F5E5A]">
-                <span className="w-2 h-2 rounded-full bg-[#0F5E5A]" />
-                <span>C.K.D. Pharmaceuticals · Lahore, Pakistan</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-left divide-y sm:divide-y-0 sm:divide-x divide-[#0E2A2B]/8">
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B] tabular-nums">
+                40+ Years
               </div>
-
-              {/* Main Headline (Instrument Serif, Fluid Scale, Italic Accent) */}
-              <h1 className="font-serif-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-[#0E2A2B] leading-[1.08] tracking-tight text-balance">
-                Advancing Healthcare With <span className="italic font-serif">Trust</span> & Innovation
-              </h1>
-
-              {/* Subheading */}
-              <p className="text-base sm:text-lg text-[#5B6B6C] leading-relaxed max-w-xl">
-                Delivering high-quality pharmaceutical solutions backed by global safety and efficacy standards. Formulated in DRAP-licensed, cGMP-certified cleanrooms.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  to="/products"
-                  className="px-6 py-3.5 rounded-lg bg-[#0E2A2B] text-[#FAF8F4] text-sm font-semibold hover:bg-[#163E3F] btn-action-transition cursor-pointer shadow-sm flex items-center gap-2 group"
-                >
-                  <span>Explore Formulations</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" strokeWidth={1.5} />
-                </Link>
-
-                <Link
-                  to="/shop"
-                  className="px-6 py-3.5 rounded-lg bg-[#0F5E5A] text-[#FAF8F4] text-sm font-semibold hover:bg-[#0A4542] btn-action-transition btn-shimmer cursor-pointer shadow-md flex items-center gap-2 group"
-                >
-                  <Pill className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Shop OTC Essentials</span>
-                </Link>
-
-                <Link
-                  to="/contact"
-                  className="px-5 py-3.5 rounded-lg border border-[#0E2A2B]/20 text-[#0E2A2B] text-sm font-semibold hover:bg-[#0E2A2B]/6 btn-action-transition cursor-pointer"
-                >
-                  Contact Us
-                </Link>
-              </div>
-
-              {/* Trust Indicators (Direct from screenshot: 40+ Years, Global Standards, Research Driven) */}
-              <div className="pt-8 border-t border-[#0E2A2B]/8 grid grid-cols-3 gap-4 text-left">
-                <div>
-                  <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B] tabular-nums">
-                    40+ Years
-                  </div>
-                  <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
-                    of Expertise
-                  </div>
-                </div>
-
-                <div>
-                  <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B]">
-                    Global
-                  </div>
-                  <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
-                    Standards & cGMP
-                  </div>
-                </div>
-
-                <div>
-                  <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B]">
-                    Research
-                  </div>
-                  <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
-                    Driven Science
-                  </div>
-                </div>
+              <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
+                Pharmaceutical Expertise (Est. 1984)
               </div>
             </div>
 
-            {/* Right Media (5 cols) - Desaturated, Cleanroom Photo with Subtle Border */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#0E2A2B]/10 aspect-4/3 group">
-                <img
-                  src={siteImages.heroLab.src}
-                  alt={siteImages.heroLab.alt}
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A2B]/70 via-transparent to-transparent flex items-end p-6">
-                  <div className="text-[#FAF8F4] space-y-1">
-                    <div className="text-xs font-semibold tracking-wider uppercase text-[#E6F3F2]">
-                      Kot Lakhpat Manufacturing Plant
-                    </div>
-                    <div className="text-sm font-medium">
-                      Class 10,000 Cleanroom Sterile Quality Inspection
-                    </div>
-                  </div>
-                </div>
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B] tabular-nums">
+                100%
+              </div>
+              <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
+                DRAP & cGMP Validated Compliance
+              </div>
+            </div>
+
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B] tabular-nums">
+                180+
+              </div>
+              <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
+                Registered Therapeutic Formulations
+              </div>
+            </div>
+
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <div className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#0E2A2B] tabular-nums">
+                52+ Cities
+              </div>
+              <div className="text-xs text-[#5B6B6C] font-medium mt-0.5">
+                Nationwide Cold-Chain Reach
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Infinite Certifications & DRAP Accreditation Marquee */}
+      <CertificationsMarquee />
 
       {/* ─────────────────────────────────────────────────────────────
           2. OUR DIVISIONS (Exact match from current website screenshot)

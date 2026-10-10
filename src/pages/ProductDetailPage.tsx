@@ -89,6 +89,9 @@ export const ProductDetailPage: React.FC = () => {
                   src={product.images[selectedImageIndex] || product.images[0]}
                   alt={product.name}
                   className="w-full h-full object-contain mix-blend-multiply"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                  }}
                 />
               </div>
 
@@ -98,13 +101,20 @@ export const ProductDetailPage: React.FC = () => {
                     <button
                       key={idx}
                       onClick={() => setSelectedImageIndex(idx)}
-                      className={`w-20 h-20 rounded-xl bg-white border overflow-hidden p-2 transition-all ${
+                      className={`w-20 h-20 rounded-xl bg-white border overflow-hidden p-2 transition-all cursor-pointer ${
                         selectedImageIndex === idx
                           ? 'border-[#0F5E5A] ring-2 ring-[#0F5E5A]/20'
                           : 'border-[#0E2A2B]/10 hover:border-[#0E2A2B]/30'
                       }`}
                     >
-                      <img src={img} alt="" className="w-full h-full object-contain mix-blend-multiply" />
+                      <img
+                        src={img}
+                        alt=""
+                        className="w-full h-full object-contain mix-blend-multiply"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                        }}
+                      />
                     </button>
                   ))}
                 </div>

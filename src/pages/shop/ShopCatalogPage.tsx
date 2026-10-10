@@ -213,6 +213,9 @@ export const ShopCatalogPage: React.FC = () => {
                         src={product.images[0]}
                         alt={product.name}
                         className="w-20 h-20 object-contain rounded-lg bg-[#FAF8F4] border border-[#0E2A2B]/6 p-1 shrink-0"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                        }}
                       />
                       <div className="space-y-1 min-w-0">
                         <div className="text-[11px] text-[#5B6B6C]">{product.category} · {product.dosageForm}</div>

@@ -91,6 +91,9 @@ export const MegaMenuAbout: React.FC<MegaMenuAboutProps> = ({ onClose }) => {
                   src={siteImages.manufacturingFacility.src}
                   alt={siteImages.manufacturingFacility.alt}
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = siteImages.heroLab.src;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A2B]/80 via-transparent to-transparent flex items-end p-4">
                   <div className="text-white space-y-1">

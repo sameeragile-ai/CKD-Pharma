@@ -418,6 +418,9 @@ export const HomePage: React.FC = () => {
                   src={siteImages.lahoreHeadquarters.src}
                   alt="CKD Pharma Lahore Headquarters"
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = siteImages.heroLab.src;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A2B]/80 via-transparent to-transparent flex items-end p-6">
                   <div className="text-white">
@@ -464,6 +467,9 @@ export const HomePage: React.FC = () => {
                       alt={article.title}
                       className="w-full h-full object-cover img-zoom-hover"
                       loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src = siteImages.heroLab.src;
+                      }}
                     />
                   </div>
                   <div className="p-5 space-y-2">

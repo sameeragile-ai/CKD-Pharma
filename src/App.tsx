@@ -6,7 +6,6 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { CartDrawer } from './components/layout/CartDrawer';
 import { WhatsAppFloat } from './components/layout/WhatsAppFloat';
-import { CustomCursor } from './components/motion/CustomCursor';
 import { IntroPreloader } from './components/motion/IntroPreloader';
 import { PageTransitionCurtain } from './components/motion/PageTransitionCurtain';
 
@@ -66,8 +65,6 @@ export default function App() {
     <I18nProvider>
       <Router>
         <ScrollToTop />
-        {/* Elite Desktop Custom Cursor */}
-        <CustomCursor />
 
         {/* First Visit Session Intro Preloader */}
         <IntroPreloader />

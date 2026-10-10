@@ -80,6 +80,9 @@ export const ResearchPage: React.FC = () => {
                   src={siteImages.researchScience.src}
                   alt={siteImages.researchScience.alt}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = siteImages.qualityControlLab.src;
+                  }}
                 />
               </div>
             </div>

@@ -175,7 +175,7 @@ export const siteConfig = {
       role: 'Director of Quality Assurance & Regulatory Affairs',
       qualifications: 'Ph.D in Pharmaceutical Chemistry, Bradford UK',
       bio: 'Leads our 28-member QA and regulatory compliance division, ensuring unwavering conformance with DRAP, WHO cGMP, and international pharmacopoeial standards.',
-      image: 'https://images.unsplash.com/photo-1594824813637-236b2b509ef4?auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'head-plant',

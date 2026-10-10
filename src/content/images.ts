@@ -24,8 +24,8 @@ export const siteImages: Record<string, ImageSlot> = {
   },
   manufacturingFacility: {
     id: 'manufacturingFacility',
-    src: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Automated pharmaceutical blister packaging and formulation facility',
+    src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Automated pharmaceutical packaging and formulation cleanroom facility',
     credit: 'Lucas Vasques / Unsplash',
     sourceUrl: 'https://unsplash.com/photos/9Z1tqf4_5tM',
     keywords: 'pharmaceutical production line, blister pack machines, GMP facility',
@@ -112,8 +112,8 @@ export const siteImages: Record<string, ImageSlot> = {
   },
   capsulesBottle: {
     id: 'capsulesBottle',
-    src: 'https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=800&q=80',
-    alt: 'Pharmaceutical capsule container on sterile laboratory background',
+    src: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=800&q=80',
+    alt: 'Pharmaceutical capsule bottle on sterile background',
     credit: 'Laurynas Mereckas / Unsplash',
     sourceUrl: 'https://unsplash.com/photos/OCafwArP6g8',
     keywords: 'capsules, gastrointestinal care, omeprazole',
@@ -144,3 +144,6 @@ export const siteImages: Record<string, ImageSlot> = {
     height: 675,
   }
 };
+
+export const fallbackProductImage = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+export const fallbackHeroImage = 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1600&q=80';

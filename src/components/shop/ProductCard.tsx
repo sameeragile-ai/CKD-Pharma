@@ -27,7 +27,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, compact = fal
   const productUrl = product.isOTC ? `/shop/product/${product.slug}` : `/products/${product.slug}`;
 
   return (
-    <div className="group relative bg-[#FAF8F4] rounded-xl border border-[#0E2A2B]/8 overflow-hidden card-hover-lift flex flex-col justify-between" data-cursor="view">
+    <div className="group relative bg-[#FAF8F4] rounded-xl border border-[#0E2A2B]/8 overflow-hidden card-hover-lift flex flex-col justify-between">
       {/* Product Image Slot */}
       <div className="relative aspect-square w-full bg-[#EBF0EE]/50 overflow-hidden flex items-center justify-center p-4">
         {imageError ? (

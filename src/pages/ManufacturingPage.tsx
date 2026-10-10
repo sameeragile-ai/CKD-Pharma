@@ -136,6 +136,9 @@ export const ManufacturingPage: React.FC = () => {
                   src={siteImages.manufacturingFacility.src}
                   alt={siteImages.manufacturingFacility.alt}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = siteImages.heroLab.src;
+                  }}
                 />
               </div>
             </div>

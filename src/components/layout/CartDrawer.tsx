@@ -139,6 +139,9 @@ export const CartDrawer: React.FC = () => {
                     alt={item.product.name}
                     className="w-18 h-18 object-cover rounded-md bg-[#FAF8F4] border border-[#0E2A2B]/6 shrink-0"
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                    }}
                   />
                   <div className="flex-1 min-w-0 flex flex-col justify-between">
                     <div>

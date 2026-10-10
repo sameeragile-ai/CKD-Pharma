@@ -122,6 +122,9 @@ export const CartPage: React.FC = () => {
                           src={item.product.images[0]}
                           alt={item.product.name}
                           className="w-20 h-20 object-contain rounded-xl bg-[#FAF8F4] border border-[#0E2A2B]/8 p-2 shrink-0"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                          }}
                         />
                         <div className="space-y-1">
                           <span className="text-[10px] font-bold uppercase text-[#0F5E5A]">

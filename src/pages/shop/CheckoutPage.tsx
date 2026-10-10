@@ -846,6 +846,9 @@ export const CheckoutPage: React.FC = () => {
                           src={item.product.images[0]}
                           alt=""
                           className="w-10 h-10 object-contain rounded bg-[#FAF8F4] border p-0.5 shrink-0"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                          }}
                         />
                         <div className="min-w-0">
                           <div className="font-semibold text-[#0E2A2B] truncate">{item.product.name}</div>

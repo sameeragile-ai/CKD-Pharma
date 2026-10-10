@@ -259,7 +259,6 @@ export const HeroCinematicSlideshow: React.FC = () => {
         borderRadius: `${scrollProgress * 24}px`,
         transition: 'transform 0.1s ease-out, border-radius 0.1s ease-out'
       }}
-      data-cursor="drag"
     >
       {/* Screen reader live announcement */}
       <div ref={liveRegionRef} className="sr-only" aria-live="polite" />
@@ -282,6 +281,9 @@ export const HeroCinematicSlideshow: React.FC = () => {
               src={prevSlide.imageSrc}
               alt={prevSlide.imageAlt}
               className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = siteImages.heroLab.src;
+              }}
             />
           </div>
         )}
@@ -302,6 +304,9 @@ export const HeroCinematicSlideshow: React.FC = () => {
             className="w-full h-full object-cover transition-transform duration-6500 ease-linear scale-100 will-change-transform"
             style={{
               transform: isHovered ? 'scale(1.02)' : `scale(${1 + progress * 0.055})`
+            }}
+            onError={(e) => {
+              e.currentTarget.src = siteImages.heroLab.src;
             }}
           />
         </div>
@@ -406,7 +411,6 @@ export const HeroCinematicSlideshow: React.FC = () => {
             <div
               onClick={handleNext}
               className="group relative cursor-pointer rounded-xl overflow-hidden border border-[#0E2A2B]/12 bg-white/90 backdrop-blur-md p-2 shadow-lg transition-all duration-300 hover:scale-102 hover:border-[#0F5E5A]/40 flex items-center gap-3 w-full sm:w-auto max-w-xs"
-              data-cursor="next"
               title="Jump to next slide"
               role="button"
               tabIndex={0}
@@ -424,6 +428,9 @@ export const HeroCinematicSlideshow: React.FC = () => {
                   alt={nextSlide.imageAlt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-115"
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = siteImages.heroLab.src;
+                  }}
                 />
                 <div className="absolute inset-0 bg-[#0E2A2B]/15 group-hover:bg-transparent transition-colors" />
               </div>

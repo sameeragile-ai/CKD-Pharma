@@ -68,6 +68,9 @@ export const NewsPage: React.FC = () => {
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
                       loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1600&q=80';
+                      }}
                     />
                   </div>
                   <div className="p-6 space-y-3">

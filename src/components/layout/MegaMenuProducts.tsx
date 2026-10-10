@@ -88,6 +88,9 @@ export const MegaMenuProducts: React.FC<MegaMenuProductsProps> = ({ onClose }) =
                     src={featuredProduct.images[0]}
                     alt={featuredProduct.name}
                     className="w-20 h-20 object-cover rounded-lg border border-[#0E2A2B]/6 shrink-0 bg-[#FAF8F4]"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80';
+                    }}
                   />
                   <div>
                     <span className="text-[10px] font-bold tracking-wider uppercase text-[#0F5E5A]">

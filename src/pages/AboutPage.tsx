@@ -146,6 +146,9 @@ export const AboutPage: React.FC = () => {
                       alt={member.name}
                       className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                       loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80';
+                      }}
                     />
                   </div>
                   <div className="p-5 space-y-1.5">
